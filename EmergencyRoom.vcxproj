@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ClearScreen.h" />
     <ClInclude Include="Hospital.h" />
     <ClInclude Include="Patient.h" />
   </ItemGroup>

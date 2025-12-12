@@ -1,16 +1,15 @@
 #include "Patient.h"
 
-// --- Constructor Implementation ---
-// We use a member initializer list (the part after the colon) to initialize
-// our private members.
-Patient::Patient(string name, int age, string illness, int severity)
-    : name(name), age(age), illness(illness), severity(severity)
+// Constructor, sets patient variables
+Patient::Patient(string patientName, int patientAge, string patientIllness, int patientSeverity)
 {
-    // The constructor body is empty because all initialization
-    // was handled in the initializer list.
+    name = patientName;
+    age = patientAge;
+    illness = patientIllness;
+    severity = patientSeverity;
 }
 
-// --- Getter Implementations ---
+// Getters
 string Patient::getName() const
 {
     return name;
@@ -31,7 +30,7 @@ int Patient::getSeverity() const
     return severity;
 }
 
-// --- Setter Implementations ---
+// Setters
 void Patient::setName(string newName)
 {
     name = newName;
@@ -52,17 +51,14 @@ void Patient::setSeverity(int newSeverity)
     severity = newSeverity;
 }
 
-// --- Friend Function Implementation ---
-// This is the implementation for our overloaded << operator.
-// It takes an output stream (os) and a Patient object (p).
+// Ostream operator for easy printing
 ostream& operator<<(ostream& os, const Patient& p)
 {
-    // We use the public getters to access the patient's private data.
+    // Assigns everything to ostream object to be returned
     os << "  - Name:     " << p.getName()
         << "\n  - Age:      " << p.getAge()
         << "\n  - Illness:  " << p.getIllness()
         << "\n  - Severity: " << p.getSeverity();
-
-    // We must return the stream to allow for chaining (e.g., cout << p1 << p2;)
+    
     return os;
 }
